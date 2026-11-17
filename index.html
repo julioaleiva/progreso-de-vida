@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Calculá tu progreso de vida en semanas. Ingresá tu fecha de nacimiento o edad y visualizá cada año como una fila de 52 semanas según tu expectativa de vida.">
+  <link rel="canonical" href="https://julioaleiva.github.io/progreso-de-vida/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Progreso de vida en semanas">
+  <meta property="og:description" content="Visualizá tu progreso de vida, semana a semana. Calculadora gratuita, responsive y bilingüe.">
+  <meta property="og:url" content="https://julioaleiva.github.io/progreso-de-vida/">
+  <title>Progreso de vida en semanas | Calculadora de expectativa de vida</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23101827'/%3E%3Cpath d='M12 35h12l7-15 8 27 6-12h7' fill='none' stroke='%234de5aa' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Progreso de Vida","url":"https://julioaleiva.github.io/progreso-de-vida/","description":"Calculadora visual del progreso de vida en semanas a partir de una fecha de nacimiento o edad.","applicationCategory":"LifestyleApplication","operatingSystem":"Any","inLanguage":["es","en"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Julio Leiva","url":"https://www.linkedin.com/in/julio-leiva/"}}</script>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1220;--panel:#151f30;--text:#f3f7fb;--muted:#a7b5c6;--line:#344156;--empty:#344156;--filled:#46dbaa;--current:#f5c66b;--shadow:0 20px 60px #0004}
+    :root[data-theme="light"]{color-scheme:light;--bg:#f4f7fb;--panel:#fff;--text:#162337;--muted:#526277;--line:#d6deea;--empty:#dce4ee;--filled:#008c69;--current:#d58400;--shadow:0 20px 60px #14253a15}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}button,input{font:inherit}button{cursor:pointer}main{width:min(1120px,calc(100% - 32px));margin:auto;padding:28px 0 72px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font-weight:800;letter-spacing:.04em;color:var(--filled)}.theme{border:1px solid var(--line);border-radius:999px;color:var(--text);background:var(--panel);padding:9px 15px;min-height:44px}h1{font-size:clamp(2.2rem,6vw,4.7rem);line-height:1.06;letter-spacing:-.045em;margin:52px 0 18px;max-width:850px}.lead{font-size:clamp(1rem,2vw,1.25rem);color:var(--muted);max-width:700px;margin:0 0 32px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:clamp(18px,3vw,30px)}.controls{display:grid;grid-template-columns:1.2fr 1fr .8fr;gap:22px;align-items:end}.field label,.field legend{display:block;font-size:.88rem;font-weight:700;margin-bottom:8px}.field input{width:100%;height:48px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);padding:0 13px}.field input:focus-visible,.theme:focus-visible,.tabs button:focus-visible{outline:3px solid var(--filled);outline-offset:2px}.tabs{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px}.tabs button{flex:1;border:0;border-radius:7px;background:transparent;color:var(--muted);min-height:40px}.tabs button[aria-pressed="true"]{background:var(--filled);color:#082018;font-weight:800}:root[data-theme="light"] .tabs button[aria-pressed="true"]{color:white}.hint{color:var(--muted);font-size:.8rem;margin:7px 0 0}.error{min-height:1.5em;color:#ff9b91;font-weight:600;margin:12px 0 0}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}.metric{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:16px}.metric strong{display:block;font-size:clamp(1.7rem,3vw,2.6rem);font-variant-numeric:tabular-nums;line-height:1.1}.metric span{display:block;color:var(--muted);margin-top:7px}.progress{height:12px;background:var(--empty);border-radius:99px;overflow:hidden;margin:5px 0 24px}.progress>span{display:block;background:var(--filled);height:100%;width:0;transition:width .3s}.section-head{display:flex;justify-content:space-between;gap:15px;align-items:end;margin-bottom:18px}.section-head h2{font-size:clamp(1.45rem,3vw,2rem);margin:0}.section-head p{color:var(--muted);margin:4px 0 0}.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:.85rem}.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;background:var(--empty)}.legend .lived{background:var(--filled)}.legend .now{background:var(--current)}.chart-scroll{overflow-x:auto;padding-bottom:12px}.chart{min-width:630px}.year-row{display:grid;grid-template-columns:34px repeat(52,minmax(0,1fr));gap:3px;align-items:center;margin:3px 0}.age-label{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;padding-right:5px}.week{aspect-ratio:1;background:var(--empty);border-radius:2px;min-width:0}.week.lived{background:var(--filled)}.week.now{background:var(--current);outline:2px solid var(--text);outline-offset:1px;z-index:1}.axis{display:flex;justify-content:space-between;margin:8px 0 0 37px;color:var(--muted);font-size:.76rem}.note{color:var(--muted);font-size:.9rem;margin:18px 0 0}.about{max-width:760px;margin:50px auto 0;color:var(--muted)}.about h2{color:var(--text)}footer{color:var(--muted);font-size:.8rem;margin-top:50px;text-align:center}@media(max-width:700px){main{width:min(100% - 24px,1120px);padding-top:16px}h1{margin-top:38px}.controls{grid-template-columns:1fr}.results{grid-template-columns:1fr 1fr}.metric:first-child{grid-column:1/-1}.metric{padding:16px}.section-head{align-items:start;flex-direction:column}.chart{min-width:630px}}@media(prefers-reduced-motion:reduce){.progress>span{transition:none}}
+    .header-actions{display:flex;align-items:center;gap:10px}.header-actions select{min-height:44px;border:1px solid var(--line);border-radius:999px;color:var(--text);background:var(--panel);padding:8px 12px;font:inherit;cursor:pointer}.header-actions select:focus-visible{outline:3px solid var(--filled);outline-offset:2px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:440px){.top{align-items:flex-start}.header-actions{flex-direction:column;align-items:stretch}.theme,.header-actions select{font-size:.82rem;padding:7px 9px}}
+  </style>
+</head>
+<body>
+<main>
+  <header class="top"><div class="brand" data-i18n="brand">PROGRESO DE VIDA</div><div class="header-actions"><label for="language" class="sr-only" data-i18n="languageLabel">Idioma</label><select id="language" aria-label="Idioma / Language"><option value="es">Español</option><option value="en">English</option></select><button class="theme" id="theme" type="button" aria-label="Cambiar tema">☀️ Modo claro</button></div></header>
+  <h1 data-i18n="heading">Una vida, semana a semana.</h1>
+  <p class="lead" data-i18n="lead">Visualizá cuánto camino recorriste. Cada cuadrito representa una semana y cada fila, un año de vida.</p>
+  <section class="panel" aria-label="Calculadora de progreso de vida" data-i18n-aria="calculator">
+    <div class="controls">
+      <div class="field"><label data-i18n="calculateWith">Calculá con</label><div class="tabs" role="group" aria-label="Tipo de dato" data-i18n-aria="inputType"><button type="button" id="birth-tab" aria-pressed="true" data-i18n="birthDate">Fecha de nacimiento</button><button type="button" id="age-tab" aria-pressed="false" data-i18n="age">Edad</button></div></div>
+      <div class="field" id="birth-field"><label for="birth" data-i18n="birthDate">Fecha de nacimiento</label><input id="birth" type="date"><p class="hint" data-i18n="privacyHint">La fecha queda guardada solo en este navegador.</p></div>
+      <div class="field" id="age-field" hidden><label for="age" data-i18n="currentAge">Edad actual (años)</label><input id="age" type="number" min="0" max="120" step="0.1" inputmode="decimal" placeholder="Ej.: 30" data-i18n-placeholder="ageExample"><p class="hint" data-i18n="decimalHint">Admite decimales, por ejemplo 30,5.</p></div>
+      <div class="field"><label for="expectancy" data-i18n="expectancy">Expectativa de vida (años)</label><input id="expectancy" type="number" min="1" max="120" step="1" value="80" inputmode="numeric"></div>
+    </div><p class="error" id="error" role="alert"></p>
+  </section>
+  <section class="results" aria-label="Resultado" data-i18n-aria="result"><div class="metric"><strong id="percent">—</strong><span data-i18n="percentLabel">de la expectativa recorrida</span></div><div class="metric"><strong id="lived">—</strong><span data-i18n="livedLabel">semanas vividas aprox.</span></div><div class="metric"><strong id="remaining">—</strong><span data-i18n="remainingLabel">semanas por delante aprox.</span></div></section>
+  <div class="progress" role="progressbar" aria-label="Progreso de vida" data-i18n-aria="progressLabel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><span id="bar-fill"></span></div>
+  <section class="panel" aria-labelledby="chart-title"><div class="section-head"><div><h2 id="chart-title">Tu vida en semanas</h2><p id="chart-subtitle">Ingresá tu fecha o edad para ver tu progreso.</p></div><div class="legend"><span><i class="lived"></i><span data-i18n="livedLegend">Vividas</span></span><span><i class="now"></i><span data-i18n="currentLegend">Semana actual</span></span><span><i></i><span data-i18n="futureLegend">Por venir</span></span></div></div><div class="chart-scroll" role="region" aria-label="Cuadrícula de semanas, desplazable horizontalmente" data-i18n-aria="gridLabel" tabindex="0"><div class="chart" id="chart"></div></div><p class="note" data-i18n="note">La cuadrícula usa 52 semanas por año como representación visual. El cálculo con fecha usa días transcurridos; los años bisiestos pueden producir pequeñas diferencias. La expectativa de vida es una referencia, no una predicción personal.</p></section>
+  <section class="about"><h2 data-i18n="aboutTitle">¿Cómo se calcula el progreso de vida?</h2><p data-i18n="aboutText">Elegí tu fecha de nacimiento o ingresá tu edad y ajustá la expectativa de vida. La calculadora muestra el porcentaje transcurrido y una cuadrícula de semanas. Si elegís una edad, las semanas son aproximadas. Si ya superaste la expectativa elegida, el progreso se muestra completo y podés aumentar ese valor para seguir explorando.</p></section>
+  <footer><span data-i18n="footerPrivacy">Tu información se procesa en tu dispositivo. No se envía a ningún servidor.</span><br><span data-i18n="developedBy">Desarrollado por</span> <a href="https://www.linkedin.com/in/julio-leiva/" target="_blank" rel="noopener noreferrer">Julio Leiva</a>.</footer>
+</main>
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const birth = $('birth'), age = $('age'), expectancy = $('expectancy'), chart = $('chart'), error = $('error');
+  const translations = {
+    es: {
+      pageTitle: 'Progreso de vida en semanas | Calculadora de expectativa de vida', description: 'Calculá tu progreso de vida en semanas. Ingresá tu fecha de nacimiento o edad y visualizá cada año como una fila de 52 semanas según tu expectativa de vida.', brand: 'PROGRESO DE VIDA', languageLabel: 'Idioma', heading: 'Una vida, semana a semana.', lead: 'Visualizá cuánto camino recorriste. Cada cuadrito representa una semana y cada fila, un año de vida.', calculator: 'Calculadora de progreso de vida', calculateWith: 'Calculá con', inputType: 'Tipo de dato', birthDate: 'Fecha de nacimiento', age: 'Edad', privacyHint: 'La fecha se procesa solo en este navegador.', currentAge: 'Edad actual (años)', ageExample: 'Ej.: 30', decimalHint: 'Admite decimales, por ejemplo 30,5.', expectancy: 'Expectativa de vida (años)', result: 'Resultado', percentLabel: 'de la expectativa recorrida', livedLabel: 'semanas vividas aprox.', remainingLabel: 'semanas por delante aprox.', progressLabel: 'Progreso de vida', livedLegend: 'Vividas', currentLegend: 'Semana actual', futureLegend: 'Por venir', gridLabel: 'Cuadrícula de semanas, desplazable horizontalmente', note: 'La cuadrícula usa 52 semanas por año como representación visual. El cálculo con fecha usa días transcurridos; los años bisiestos pueden producir pequeñas diferencias. La expectativa de vida es una referencia, no una predicción personal.', aboutTitle: '¿Cómo se calcula el progreso de vida?', aboutText: 'Elegí tu fecha de nacimiento o ingresá tu edad y ajustá la expectativa de vida. La calculadora muestra el porcentaje transcurrido y una cuadrícula de semanas. Si elegís una edad, las semanas son aproximadas. Si ya superaste la expectativa elegida, el progreso se muestra completo y podés aumentar ese valor para seguir explorando.', footerPrivacy: 'Tu información se procesa en tu dispositivo. No se envía a ningún servidor.', developedBy: 'Desarrollado por', darkMode: 'Modo oscuro', lightMode: 'Modo claro', activateDark: 'Activar modo oscuro', activateLight: 'Activar modo claro', expectancyError: 'Ingresá una expectativa de vida entre 1 y 120 años.', birthError: 'Ingresá una fecha de nacimiento válida que no sea futura.', ageError: 'Ingresá una edad entre 0 y 120 años.', lifeTitle: n => `Una vida de ${n} ${n === 1 ? 'año' : 'años'}`, intro: 'Ingresá tu fecha o edad para ver tu progreso.', chartSubtitle: (a,b) => `${a} de ${b} semanas representadas · una fila = un año`, week: (y,w,state) => `Edad ${y}, semana ${w} · ${state}`, livedState: 'vivida', currentState: 'actual', futureState: 'por venir', axis: n => `Semana ${n}`
+    },
+    en: {
+      pageTitle: 'Life progress in weeks | Life expectancy calculator', description: 'Calculate your life progress in weeks. Enter your birth date or age and see each year as a row of 52 weeks based on your chosen life expectancy.', brand: 'LIFE PROGRESS', languageLabel: 'Language', heading: 'One life, week by week.', lead: 'See how far you have come. Each square represents one week, and each row represents one year of life.', calculator: 'Life progress calculator', calculateWith: 'Calculate using', inputType: 'Input type', birthDate: 'Date of birth', age: 'Age', privacyHint: 'Your date is processed only in this browser.', currentAge: 'Current age (years)', ageExample: 'E.g. 30', decimalHint: 'Decimals are supported, for example 30.5.', expectancy: 'Life expectancy (years)', result: 'Results', percentLabel: 'of your chosen expectancy elapsed', livedLabel: 'approx. weeks lived', remainingLabel: 'approx. weeks remaining', progressLabel: 'Life progress', livedLegend: 'Lived', currentLegend: 'Current week', futureLegend: 'Ahead', gridLabel: 'Scrollable grid of weeks', note: 'The grid uses 52 weeks per year as a visual guide. Birth date calculations use elapsed days; leap years can cause small differences. Life expectancy is a reference, not a personal prediction.', aboutTitle: 'How is life progress calculated?', aboutText: 'Choose your birth date or enter your age, then adjust life expectancy. The calculator shows the elapsed percentage and a grid of weeks. When you enter an age, the week count is approximate. If you have passed the chosen expectancy, progress appears complete; you can raise that value to keep exploring.', footerPrivacy: 'Your information is processed on your device. Nothing is sent to a server.', developedBy: 'Developed by', darkMode: 'Dark mode', lightMode: 'Light mode', activateDark: 'Turn on dark mode', activateLight: 'Turn on light mode', expectancyError: 'Enter a life expectancy between 1 and 120 years.', birthError: 'Enter a valid date of birth that is not in the future.', ageError: 'Enter an age between 0 and 120 years.', lifeTitle: n => `A life of ${n} ${n === 1 ? 'year' : 'years'}`, intro: 'Enter your birth date or age to see your progress.', chartSubtitle: (a,b) => `${a} of ${b} weeks shown · one row = one year`, week: (y,w,state) => `Age ${y}, week ${w} · ${state}`, livedState: 'lived', currentState: 'current', futureState: 'ahead', axis: n => `Week ${n}`
+    }
+  };
+  let language = localStorage.getItem('life-language') === 'en' ? 'en' : 'es';
+  let mode = 'birth';
+  const today = new Date();
+  birth.max = [today.getFullYear(), String(today.getMonth()+1).padStart(2,'0'), String(today.getDate()).padStart(2,'0')].join('-');
+  const savedTheme = localStorage.getItem('life-theme');
+  if (savedTheme === 'light' || savedTheme === 'dark') document.documentElement.dataset.theme = savedTheme;
+  function t() { return translations[language]; }
+  function themeLabel() {
+    const light = document.documentElement.dataset.theme === 'light';
+    $('theme').textContent = `${light ? '🌙' : '☀️'} ${light ? t().darkMode : t().lightMode}`;
+    $('theme').setAttribute('aria-label', light ? t().activateDark : t().activateLight);
+  }
+  function translate() {
+    document.documentElement.lang = language;
+    $('language').value = language;
+    document.title = t().pageTitle;
+    document.querySelector('meta[name="description"]').content = t().description;
+    document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t()[el.dataset.i18n]; });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', t()[el.dataset.i18nAria]); });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t()[el.dataset.i18nPlaceholder]; });
+    themeLabel();
+    render();
+  }
+  $('language').addEventListener('change', e => { language = e.target.value; localStorage.setItem('life-language', language); translate(); });
+  $('theme').addEventListener('click', () => { const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light'; document.documentElement.dataset.theme = next; localStorage.setItem('life-theme', next); themeLabel(); });
+  function setMode(next) { mode = next; $('birth-field').hidden = next !== 'birth'; $('age-field').hidden = next !== 'age'; $('birth-tab').setAttribute('aria-pressed', String(next === 'birth')); $('age-tab').setAttribute('aria-pressed', String(next === 'age')); render(); }
+  $('birth-tab').onclick = () => setMode('birth');
+  $('age-tab').onclick = () => setMode('age');
+  [birth, age, expectancy].forEach(el => el.addEventListener('input', render));
+  function render() {
+    error.textContent = '';
+    const years = Number(expectancy.value);
+    if (!Number.isInteger(years) || years < 1 || years > 120) { error.textContent = t().expectancyError; return; }
+    let livedWeeks = null, ageYears = null;
+    if (mode === 'birth' && birth.value) {
+      const parts = birth.value.split('-').map(Number), date = new Date(parts[0], parts[1]-1, parts[2]);
+      if (date.getFullYear() !== parts[0] || date.getMonth() !== parts[1]-1 || date.getDate() !== parts[2] || date > today) { error.textContent = t().birthError; return; }
+      const days = (Date.UTC(today.getFullYear(),today.getMonth(),today.getDate()) - Date.UTC(parts[0],parts[1]-1,parts[2])) / 86400000;
+      livedWeeks = Math.floor(days / 7); ageYears = days / 365.2425;
+    } else if (mode === 'age' && age.value !== '') {
+      ageYears = Number(age.value);
+      if (!Number.isFinite(ageYears) || ageYears < 0 || ageYears > 120) { error.textContent = t().ageError; return; }
+      livedWeeks = Math.floor(ageYears * 365.2425 / 7);
+    }
+    const fmt = new Intl.NumberFormat(language === 'es' ? 'es-AR' : 'en-US');
+    const total = years * 52, hasInput = livedWeeks !== null, shown = Math.min(total, livedWeeks ?? 0), pct = hasInput ? Math.min(100, ageYears / years * 100) : 0;
+    $('percent').textContent = hasInput ? `${pct.toLocaleString(language === 'es' ? 'es-AR' : 'en-US', {maximumFractionDigits:1})} %` : '—';
+    $('lived').textContent = hasInput ? fmt.format(livedWeeks) : '—';
+    $('remaining').textContent = hasInput ? fmt.format(Math.max(0,total-livedWeeks)) : '—';
+    $('bar').setAttribute('aria-valuenow', String(Math.round(pct)));
+    $('bar-fill').style.width = `${pct}%`;
+    $('chart-title').textContent = t().lifeTitle(years);
+    $('chart-subtitle').textContent = hasInput ? t().chartSubtitle(fmt.format(shown), fmt.format(total)) : t().intro;
+    const frag = document.createDocumentFragment();
+    for (let y=0; y<years; y++) {
+      const row = document.createElement('div'); row.className = 'year-row';
+      const label = document.createElement('span'); label.className = 'age-label'; label.textContent = y; row.append(label);
+      for (let w=0; w<52; w++) {
+        const cell = document.createElement('span'), index = y*52+w;
+        cell.className = 'week' + (hasInput && index<shown ? ' lived' : '') + (hasInput && index===shown && shown<total ? ' now' : '');
+        const state = hasInput && index<shown ? t().livedState : hasInput && index===shown ? t().currentState : t().futureState;
+        cell.title = t().week(y,w+1,state); row.append(cell);
+      }
+      frag.append(row);
+    }
+    const axis = document.createElement('div'); axis.className = 'axis';
+    for (const n of [1,52]) { const span = document.createElement('span'); span.textContent = t().axis(n); axis.append(span); }
+    frag.append(axis); chart.replaceChildren(frag);
+  }
+  translate();
+})();
+</script>
+</body>
+</html>

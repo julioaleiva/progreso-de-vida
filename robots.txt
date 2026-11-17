@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://julioaleiva.github.io/progreso-de-vida/sitemap.xml
